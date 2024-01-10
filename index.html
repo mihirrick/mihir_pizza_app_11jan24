@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title> Mihir's Pizza </title>
+        <link rel="icon" href="pi.PNG">
+        <style>
+            * { font-size: 40px; font-family: Century;}
+            input[type=radio] { border: 0px; width: 2%; height: 0.5em; }
+            input[type=checkbox] { border: 0px; width: 2%; height: 0.5em;}
+                body { background-color: lightyellow;}
+        </style>
+        <script>
+            function po()
+            {
+                event.preventDefault();
+                let name = document.getElementById("name");
+                let s = document.getElementById("s");
+                let m = document.getElementById("m");
+                let l = document.getElementById("l");
+                let to = document.getElementById("to");
+                let co = document.getElementById("co");
+                let on = document.getElementById("on");
+                let msg = document.getElementById("msg");
+
+                let size = "";
+                if (s.checked)      size = " Small";
+                else if (m.checked) size = " Medium";
+                else                size = " Large";
+
+                let toppings = "";
+                if (to.checked)     toppings = toppings + " Tomato ";
+                if (co.checked)     toppings = toppings + " Corn ";
+                if (ch.checked)     toppings = toppings + " Cheese ";
+                if (on.checked)     toppings = toppings + " Onion ";
+
+                let ms = "name = " + name.value + " size = " + size + " toppings = " + toppings;
+                msg.innerHTML = ms;
+            }
+        </script>
+    </head>
+    <body>
+        <center>
+            <h1> Mihir's Pizza App </h1>
+            <form onsubmit="po()">
+                <input type="text" id="name" placeholder="enter ur name ">
+                <br><br>
+                <label> Select Pizza Size </label><br>
+                <input type="radio" name="s1" id="s" value="s" > Small
+                <input type="radio" name="s1" id="m" value="m" checked=true> Medium
+                <input type="radio" name="s1" id="l" value="l" > Large
+                <br><br>
+                <label> Select Pizza Toppings </label><br>
+                <input type="checkbox" id="to" > Tomato
+                <input type="checkbox" id="co" > Corn
+                <input type="checkbox" id="ch" > Cheese
+                <input type="checkbox" id="on" > Onion
+                <br><br>
+                <input type="submit" value="Place Order">
+            </form>
+                <h2 id="msg"></h2>
+        </center>
+    </body>
+</html>
